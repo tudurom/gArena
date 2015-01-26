@@ -59,4 +59,7 @@ group :development, :test do
   gem 'spring'
   # Generators generate haml
   gem 'haml-rails'
+
+  # Toy smtp server
+  gem 'mailcatcher'
 end
