@@ -1,0 +1,9 @@
+%h1
+  %a= link_to "#{post.title}", post_path(post)
+%h6= "By #{post.author_name} at #{post.time}"
+:markdown
+  #{post.content}
+%br
+%br
+= render "edit", :post => post, :user => current_user
+%br

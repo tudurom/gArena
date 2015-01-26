@@ -1,0 +1,31 @@
+= form_for @post do |f|
+  - if @post.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@post.errors.count, "error")} prohibited this post from being saved:"
+      %ul
+        - @post.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :title
+    = f.text_field :title
+  .field
+    = f.label :content
+    %br
+    = f.text_area :content, id: 'editor', class: 'form-control', rows: '15'
+  .field
+    = f.label :author_name
+    = f.text_field :author_name, :value => current_user.name
+  .field
+    = f.label :time
+    = f.datetime_select :time, time: Time.now
+  .actions
+    = f.submit 'Save'
+:javascript
+  (function () {
+    $("textarea#editor").pagedownBootstrap();
+    $(".wmd-preview").addClass("well");
+  })();

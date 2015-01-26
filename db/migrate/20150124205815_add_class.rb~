@@ -1,0 +1,4 @@
+class AddClass < ActiveRecord::Migration
+  def change
+  end
+end

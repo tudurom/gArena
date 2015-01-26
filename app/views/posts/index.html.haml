@@ -1,0 +1,16 @@
+- content_for :title, 'Posts'
+
+- if !@posts.any?
+  %h1 No posts
+
+- @posts.each do |post|
+  -# %h1= post.title
+  -# %h6= "By #{post.author_name} at #{post.time}"
+  -# = post.content
+  -# %br
+  -# = render "edit", :post => post
+  -# %br
+  = render "post", :post => post
+
+- if can? :manage, @posts
+  = link_to 'New Post', new_post_path

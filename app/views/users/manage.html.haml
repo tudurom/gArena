@@ -1,0 +1,17 @@
+- content_for :title, "Manage users"
+
+%h1 Manage users
+%h2 Current users
+
+%table{:style => "width: 100%"}
+  %tr
+    %td Name
+    %td Email
+    %td Class
+    %td Last logged in
+  - @users.each do |user|
+    %tr
+      %td= user.name
+      %td= user.email
+      %td= user.clazz
+      %td= user.last_sign_in_at.inspect
