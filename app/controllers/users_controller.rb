@@ -5,18 +5,53 @@ class UsersController < ApplicationController
   def index
   end
   def show
+    @user = current_user
   end
   def manage
-    @users = User.all
-    @user = User.new
-    respond_with(@users)
+    @users = User.paginate(:page => params[:page], :per_page => 10)
+    if can? :manage, @users then
+      @user = User.new
+      respond_with(@users)
+    else
+      flash[:error] = "Acces denied!"
+      redirect_to root_url
+    end
   end
   def create
     pass = Devise.friendly_token.first(8)
     user = User.new({:email => params[:user][:email], :password => pass, :password_confirmation => pass, :name => params[:user][:name], :clazz => params[:user][:clazz]})
     user.save!
-    flash[:notice] = "Account creation succesful. Password: #{pass}"
+    flash[:success] = "Account creation succesful."
+    flash[:notice] = "Password: #{pass}"
     redirect_to :action => "manage"
+  end
+  def update
+    @user = User.find(current_user.id)
+    if @user.update(user_params)
+      # If password changed, bypass the user
+      sign_in @user, :bypass => true
+      flash[:success] = "Success!"
+      redirect_to root_path
+    else
+      render "show"
+    end
+  end
+
+  def destroy
+    @user = User.find(params[:id])
+    name = @user.name
+
+    if @user.destroy then
+      redirect_to manage_users_url, notice: "User \"#{name}\" deleted."
+    end
+  end
+
+  def test_alert
+    flash[:success] = "Succes!"
+    flash[:notice] = "Notice"
+    flash[:alert] = "The monkeys are not safe!"
+    flash[:error] = "Zombies ate your brains"
+    redirect_to root_url
   end
 
   private
@@ -26,6 +61,6 @@ class UsersController < ApplicationController
     end
 
     def user_params
-      params.require(:user).permit(:email, :name, :clazz)
+      params.require(:user).permit(:email, :name, :clazz, :password, :password_confirmation)
     end
 end

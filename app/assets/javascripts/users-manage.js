@@ -4,3 +4,7 @@ $(document).ready(function(){
     $('#task-form').css('display', 'block');
   });
 });
+
+$(document).ready(function(){
+  $("#usr-table").tablesorter();
+});

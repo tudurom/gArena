@@ -1,3 +1,13 @@
+- script 'users-show'
+
 - content_for :title do
-  = "#{current_user.name}'s profile"
+  = "#{@user.name}'s profile"
 = link_to "Sign out", destroy_user_session_path, :method => :delete
+%hr
+%button#show-button.btn.btn-default Edit account
+
+%div{:id => "hidden_form", :style => "display: block;"}
+  = render "change"
+- if can? :manage, @users
+  %hr
+  = link_to "Manage users", manage_users_path

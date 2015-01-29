@@ -74,6 +74,8 @@ GEM
       responders
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
+    devise-encryptable (0.2.0)
+      devise (>= 2.1.0)
     erubis (2.7.0)
     eventmachine (1.0.4)
     execjs (2.2.2)
@@ -146,6 +148,16 @@ GEM
       bundler (>= 1.3.0, < 2.0)
       railties (= 4.2.0)
       sprockets-rails
+    rails-assets-d3 (3.5.3)
+    rails-assets-jquery (2.1.3)
+    rails-assets-jquery-validation (1.13.1)
+      rails-assets-jquery (>= 1.6.4)
+    rails-assets-jquery.tablesorter (2.18.4)
+      rails-assets-jquery (>= 1.2.6)
+    rails-assets-planetary.js (1.1.1)
+      rails-assets-d3 (~> 3.0)
+      rails-assets-topojson (~> 1.0)
+    rails-assets-topojson (1.6.18)
     rails-deprecated_sanitizer (1.0.3)
       activesupport (>= 4.2.0.alpha)
     rails-dom-testing (1.0.5)
@@ -219,6 +231,7 @@ GEM
       binding_of_caller (>= 0.7.2)
       railties (~> 4.0)
       sprockets-rails (>= 2.0, < 4.0)
+    will_paginate (3.0.7)
 
 PLATFORMS
   ruby
@@ -231,6 +244,7 @@ DEPENDENCIES
   carrierwave
   coffee-rails (~> 4.1.0)
   devise
+  devise-encryptable
   font-awesome-rails
   haml
   haml-contrib
@@ -241,9 +255,13 @@ DEPENDENCIES
   maruku
   mysql2
   rails (= 4.2.0)
+  rails-assets-jquery-validation!
+  rails-assets-jquery.tablesorter!
+  rails-assets-planetary.js!
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   spring
   turbolinks
   uglifier (>= 1.3.0)
   web-console (~> 2.0)
+  will_paginate

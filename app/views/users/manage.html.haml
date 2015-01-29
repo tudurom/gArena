@@ -1,32 +1,39 @@
 - content_for :title, "Manage users"
-- script 'users-new'
+- script 'users-manage'
+- style 'users-manage'
 
 %h1 Manage users
 %h2 Current users
 
-%table{:style => "width: 100%"}
-  %tr
-    %td Name
-    %td Email
-    %td Class
-    %td Last logged in
-  - @users.each do |user|
+%table{:style => "width: 100%", :id => "usr-table", :validate => 1}
+  %thead
     %tr
-      %td= user.name
-      %td= user.email
-      %td= user.clazz
-      %td= user.last_sign_in_at.inspect
+      %th Name
+      %th Email
+      %th Class
+      %th Last logged in
+      %th
+  %tbody
+    - @users.each do |user|
+      %tr
+        %td= user.name
+        %td= user.email
+        %td= user.clazz
+        %td= user.last_sign_in_at
+        %td= link_to "Delete", users_path(:id => user.id), method: :delete, data: { confirm: "Are you sure?" }
+= will_paginate @users
+%hr
 
 %button.btn.btn-default#show-button New user
 %div{:id => "task-form", :style => "display: none;"}
   = form_for @user do |f|
     = f.label :name
-    = f.text_field :name, :class => "form-control"
+    = f.text_field :name, :class => "form-control", :required => ""
 
     = f.label :email
-    = f.text_field :email, :class => "form-control"
+    = f.email_field :email, :class => "form-control", :required => ""
 
-    = f.label :clazz
-    = f.text_field :clazz, :class => "form-control"
-
+    = f.label :class
+    = f.text_field :clazz, :class => "form-control", :required => ""
+    %br
     = f.submit 'Create it!', :class => "btn btn-default"

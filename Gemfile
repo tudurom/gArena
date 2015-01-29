@@ -1,6 +1,4 @@
 source 'https://rubygems.org'
-source 'https://rails-assets.org'
-
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
@@ -38,6 +36,15 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # For authentication
 gem 'devise'
 gem 'cancan'
+gem 'devise-encryptable'
+# Assets from bower
+source 'https://rails-assets.org' do
+  gem 'rails-assets-jquery-validation'
+  gem 'rails-assets-planetary.js'
+  gem 'rails-assets-jquery.tablesorter'
+end
+# Pagination
+gem 'will_paginate'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
