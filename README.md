@@ -16,5 +16,8 @@ First, clone the repo. Then, config your DB.
 Run:
 
     bundle install
+then
+
+    rake db:migrate
 
 Next, create your user. Coming back with an installation script!
