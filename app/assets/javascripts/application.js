@@ -16,4 +16,5 @@
 //= require turbolinks
 //= require jquery.tablesorter
 //= require jquery-validation
+//= require jquery.avgrund
 //= require_tree .

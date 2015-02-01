@@ -42,6 +42,7 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-jquery-validation'
   gem 'rails-assets-planetary.js'
   gem 'rails-assets-jquery.tablesorter'
+  gem 'rails-assets-jquery.avgrund'
 end
 # Pagination
 gem 'will_paginate'

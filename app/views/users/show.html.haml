@@ -4,9 +4,9 @@
   = "#{@user.name}'s profile"
 = link_to "Sign out", destroy_user_session_path, :method => :delete
 %hr
-%button#show-button.btn.btn-default Edit account
+%button.btn.btn-default#show-button Edit account
 
-%div{:id => "hidden_form", :style => "display: block;"}
+%div{:id => "hidden_form", :style => "display: none;"}
   = render "change"
 - if can? :manage, @users
   %hr

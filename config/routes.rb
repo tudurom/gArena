@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     get 'users/test_alert', :test_alert
     match "users/:id" => 'users#destroy', :via => :delete
     get 'users/manage/:id' => "users#update"
+    get 'users/makeadmin' => 'users#admin'
+    get 'users/demote' => 'users#demote'
   end
   resource :user, only: [:edit] do
     collection do

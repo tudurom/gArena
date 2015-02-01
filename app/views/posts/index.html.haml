@@ -13,6 +13,7 @@
   = render "post", :post => post
 
 - if can? :manage, @posts
+  %hr
   = link_to 'New Post', new_post_path
 %hr
 = will_paginate @posts

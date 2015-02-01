@@ -25,7 +25,12 @@
   .actions
     = f.submit 'Save'
 :javascript
-  (function () {
-    $("textarea#editor").pagedownBootstrap();
+  $(document).ready(function() {
+    $("textarea#editor").pagedownBootstrap({
+      'sanatize': false,
+      'help': function() {
+        alert('Meow');
+      }
+    });
     $(".wmd-preview").addClass("well");
-  })();
+  });

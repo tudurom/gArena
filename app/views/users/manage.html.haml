@@ -12,6 +12,8 @@
       %th Email
       %th Class
       %th Last logged in
+      %th Admin?
+      %th
       %th
   %tbody
     - @users.each do |user|
@@ -20,8 +22,17 @@
         %td= user.email
         %td= user.clazz
         %td= user.last_sign_in_at
+        %td= user.admin
         %td= link_to "Delete", users_path(:id => user.id), method: :delete, data: { confirm: "Are you sure?" }
+        %td
+          - if user.admin == false
+            = link_to "Make admin", users_makeadmin_users_path(:user => {:id => user.id}), data: { confirm: "Pretty sure about this?" }
+          - elsif user != current_user
+            = link_to "Demote", users_demote_users_path(:user => {:id => user.id}), data: { confirm: "Are you absolutely sure?" }
+          - else
+            This is you.
 = will_paginate @users
+
 %hr
 
 %button.btn.btn-default#show-button New user

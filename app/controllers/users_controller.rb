@@ -59,6 +59,30 @@ class UsersController < ApplicationController
     redirect_to root_url
   end
 
+  def admin
+    if can? :manage, :users then
+      user = User.find(params[:user][:id])
+      user.admin = 1
+      user.save
+      flash[:success] = "User #{user.name} is now an admin."
+    else
+      flash[:error] = "Acces denied"
+    end
+    redirect_to root_url
+  end
+
+  def demote
+    if can? :manage, :users then
+      user = User.find(params[:user][:id])
+      user.admin = 0
+      user.save
+      flash[:success] = "User #{user.name} is no longer an admin."
+    else
+      flash[:error] = "Acces denied"
+    end
+    redirect_to root_url
+  end
+
   private
 
     def all_users
@@ -67,6 +91,6 @@ class UsersController < ApplicationController
 
     def user_params
       # params.require(:user).permit(:email, :name, :clazz, :password, :password_confirmation)
-      params.require(:user).permit(:id, :email, :name, :clazz, :password, :password_confirmation)
+      params.require(:user).permit(:id, :email, :name, :clazz, :password, :password_confirmation, :admin)
     end
 end
