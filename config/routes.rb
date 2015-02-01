@@ -7,11 +7,11 @@ Rails.application.routes.draw do
     get 'users/manage', :manage
     get 'users/test_alert', :test_alert
     match "users/:id" => 'users#destroy', :via => :delete
-    # match 'users/:id' => 'users#update'
+    get 'users/manage/:id' => "users#update"
   end
   resource :user, only: [:edit] do
     collection do
-      patch 'update_password'
+      patch 'update'
     end
   end
   devise_for :users

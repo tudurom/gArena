@@ -18,6 +18,8 @@
   .field
     = f.label :password_confirmation
     = f.password_field :password_confirmation
+  .field
+    = f.hidden_field :id, :value => @user.id
 
   .action_container
     = f.submit "Save", :class => "btn btn-default"

@@ -26,17 +26,22 @@ class UsersController < ApplicationController
     redirect_to :action => "manage"
   end
   def update
-    @user = User.find(current_user.id)
+    @user = User.find(user_params[:id])
     if @user.update(user_params)
       # If password changed, bypass the user
-      sign_in @user, :bypass => true
+      if @user == current_user then
+        sign_in @user, :bypass => true
+      end
       flash[:success] = "Success!"
       redirect_to root_path
     else
       render "show"
     end
   end
-
+  def edit
+    @user = User.find(user_params[:id])
+    respond_with @user
+  end
   def destroy
     @user = User.find(params[:id])
     name = @user.name
@@ -61,6 +66,7 @@ class UsersController < ApplicationController
     end
 
     def user_params
-      params.require(:user).permit(:email, :name, :clazz, :password, :password_confirmation)
+      # params.require(:user).permit(:email, :name, :clazz, :password, :password_confirmation)
+      params.require(:user).permit(:id, :email, :name, :clazz, :password, :password_confirmation)
     end
 end

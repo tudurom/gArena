@@ -16,7 +16,7 @@
   %tbody
     - @users.each do |user|
       %tr
-        %td= user.name
+        %td= link_to user.name, edit_users_path(user: {:id => user.id})
         %td= user.email
         %td= user.clazz
         %td= user.last_sign_in_at
