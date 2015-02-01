@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150124205815) do
+ActiveRecord::Schema.define(version: 20150201195108) do
 
   create_table "homes", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -21,11 +21,11 @@ ActiveRecord::Schema.define(version: 20150124205815) do
   create_table "posts", force: :cascade do |t|
     t.string   "name",        limit: 255
     t.string   "title",       limit: 255
-    t.string   "content",     limit: 255
+    t.text     "content",     limit: 65535
     t.string   "author_name", limit: 255
     t.datetime "time"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -39,6 +39,13 @@ ActiveRecord::Schema.define(version: 20150124205815) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip",     limit: 255
     t.string   "last_sign_in_ip",        limit: 255
+    t.string   "confirmation_token",     limit: 255
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string   "unconfirmed_email",      limit: 255
+    t.integer  "failed_attempts",        limit: 4,   default: 0,     null: false
+    t.string   "unlock_token",           limit: 255
+    t.datetime "locked_at"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "admin",                  limit: 1,   default: false
