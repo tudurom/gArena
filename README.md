@@ -1,5 +1,6 @@
-# gArena
+# gArena 
 ## A simple, ruby-based LMS
+[![security](https://hakiri.io/github/tudurom/gArena/master.svg)](https://hakiri.io/github/tudurom/gArena/master)
 
 gArena is a very simple, ruby-on-rails based LMS. WIP!!!
 
