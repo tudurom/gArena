@@ -13,8 +13,8 @@ default: &default
   adapter: mysql2
   encoding: utf8
   pool: 5
-  username: garena
-  password: garena
+  username: root
+  password: zeus
   socket: /var/run/mysqld/mysqld.sock
 
 development:
