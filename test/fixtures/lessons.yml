@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  time: 2015-02-03 20:25:28
+  teacher: MyString
+  content: MyText
+
+two:
+  title: MyString
+  time: 2015-02-03 20:25:28
+  teacher: MyString
+  content: MyText

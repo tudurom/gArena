@@ -1,0 +1,14 @@
+- content_for :title, @course.name
+
+%h1= @course.name
+%h6= "#{@course.subject}, #{@course.teacher}"
+.container
+  - @course.lessons.each do |lesson|
+    .col-md-4
+      %paper-shadow{:z => 1, :class => "card"}
+        %h3= link_to lesson.title, lesson_path(:id => lesson.id)
+        %h5= lesson_preview lesson.id
+
+= link_to 'Edit', edit_course_path(@course)
+\|
+= link_to 'Back', courses_path

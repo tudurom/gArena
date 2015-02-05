@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :courses
+
+  resources :lessons
+
   resources :posts
   root :to => "posts#index"
 

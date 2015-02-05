@@ -12,6 +12,16 @@
  *
  *= require_self
  */
-@import "bootstrap-sprockets";
+//@import "bootstrap-sprockets";
 @import "bootstrap";
+@import "flat-ui";
 @import "font-awesome";
+
+.card {
+  margin-top: 10px;
+  border-width: 5px;
+  border-radius: 2px;
+  text-align: left;
+  z-index: 1;
+  height: 15rem;
+}

@@ -5,10 +5,16 @@ class Ability
     # Define abilities for the passed in user here. For example:
     #
       user ||= User.new # guest user (not logged in)
-      if user.admin?
+      if user.role == "admin"
         can :manage, :all
+      elsif user.role == "teacher"
+        teacher
+      elsif user.role == "super_teacher"
+        super_teacher
+      elsif user.role == "student"
+        student
       else
-        can :read, :articles
+        guest
       end
     #
     # The first argument to `can` is the action you are giving the user
@@ -29,4 +35,30 @@ class Ability
     # See the wiki for details:
     # https://github.com/ryanb/cancan/wiki/Defining-Abilities
   end
+
+  private
+    def admin
+      can :manage, :all
+    end
+
+    def teacher
+      can :manage, :courses
+      can :manage, :lessons
+      can :manage, :users
+    end
+
+    def super_teacher
+      teacher
+      can :manage, :posts
+    end
+
+    def student
+      can :view, :courses
+      can :view, :lessons
+    end
+
+    def guest
+      can :view, :public_courses
+      can :view, :public_lessons
+    end
 end

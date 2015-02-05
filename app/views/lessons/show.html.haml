@@ -1,0 +1,12 @@
+- content_for, :title, @lesson.title
+
+%h2= @lesson.title
+%h5
+  Written by #{@lesson.teacher} at #{@lesson.time}
+:markdown
+  #{@lesson.content}
+
+- if can? :manage, @lessons
+  = link_to 'Edit', edit_lesson_path(@lesson)
+
+= link_to 'Back', '#', class: "back_link"

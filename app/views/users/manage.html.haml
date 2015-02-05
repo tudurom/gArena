@@ -3,7 +3,7 @@
 - style 'users-manage'
 
 %h1 Manage users
-%h2 Current users
+%h3 Current users
 
 %table{:style => "width: 100%", :id => "usr-table", :validate => 1}
   %thead
@@ -13,6 +13,7 @@
       %th Class
       %th Last logged in
       %th Admin?
+      %th Role
       %th
       %th
   %tbody
@@ -22,20 +23,21 @@
         %td= user.email
         %td= user.clazz
         %td= user.last_sign_in_at
-        %td= user.admin
-        %td= link_to "Delete", users_path(:id => user.id), method: :delete, data: { confirm: "Are you sure?" }
+        %td= user.admin?
+        %td= user.role.capitalize
+        %td= link_to "Delete", users_path(:id => user.id), method: :delete, data: { confirm: "Are you sure?" }, :class => "text-danger"
         %td
-          - if user.admin == false
-            = link_to "Make admin", users_makeadmin_users_path(:user => {:id => user.id}), data: { confirm: "Pretty sure about this?" }
+          - if user.admin? == false
+            = link_to "Make admin", users_makeadmin_users_path(:user => {:id => user.id}), data: { confirm: "Pretty sure about this?" }, :class => "text-info"
           - elsif user != current_user
-            = link_to "Demote", users_demote_users_path(:user => {:id => user.id}), data: { confirm: "Are you absolutely sure?" }
+            = link_to "Demote", users_demote_users_path(:user => {:id => user.id}), data: { confirm: "Are you absolutely sure?" }, :class => "text-danger"
           - else
             This is you.
 = will_paginate @users
 
 %hr
 
-%button.btn.btn-default#show-button New user
+%button.btn.btn-primary#show-button New user
 %div{:id => "task-form", :style => "display: none;"}
   = form_for @user do |f|
     = f.label :name
@@ -47,4 +49,4 @@
     = f.label :class
     = f.text_field :clazz, :class => "form-control", :required => ""
     %br
-    = f.submit 'Create it!', :class => "btn btn-default"
+    = f.submit 'Create it!', :class => "btn btn-embossed btn-success"

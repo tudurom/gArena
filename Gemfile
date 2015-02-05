@@ -43,9 +43,14 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-planetary.js'
   gem 'rails-assets-jquery.tablesorter'
   gem 'rails-assets-jquery.avgrund'
+  gem 'rails-assets-flat-ui'
 end
 # Pagination
 gem 'will_paginate'
+# Polymer is the future
+gem 'polymer-rails'
+gem 'polymer-core-rails'
+gem 'polymer-paper-rails'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

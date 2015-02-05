@@ -1,0 +1,23 @@
+= form_for @course do |f|
+  - if @course.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@course.errors.count, "error")} prohibited this course from being saved:"
+      %ul
+        - @course.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :name
+    = f.text_field :name, :class => 'form-control', :required => true, :placeholder => 'Course name'
+  .field
+    = f.label :subject
+    = f.text_field :subject, :class => 'form-control', :required => true, :placeholder => 'Ex: Geography, Maths etc.'
+  .field
+    = f.label :teacher
+    = f.text_field :teacher, :class => 'form-control', :required => true, :placeholder => 'Your name'
+  .field
+    = f.label "Students"
+    = select("students", "user_id", User.where(role: "student").collect {|s| [s.name, s.id]}, {:multiple => true}, :class => 'form-control')
+  %br
+  .actions
+    = f.submit 'Save', :class => 'btn btn-embossed btn-primary'

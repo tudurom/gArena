@@ -1,0 +1,35 @@
+= form_for @lesson do |f|
+  - if @lesson.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@lesson.errors.count, "error")} prohibited this lesson from being saved:"
+      %ul
+        - @lesson.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :title
+    = f.text_field :title, :required => true
+  .field
+    = f.label "Course"
+    = f.select :course_id, options_from_collection_for_select(Course.all, "id", "name")
+  .field
+    = f.label :time
+    = f.datetime_select :time, :required => true
+  .field
+    = f.label :teacher
+    = f.text_field :teacher, :value => current_user.name, :required => true
+  .field
+    = f.label :content
+    = f.text_area :content, id: 'editor' , class: 'form-control', rows: 15, :required => true
+  .actions
+    = f.submit 'Save', class: "btn btn-default"
+:javascript
+  $(document).ready(function() {
+    $("textarea#editor").pagedownBootstrap({
+      'sanatize': false,
+      'help': function() {
+        alert('Meow');
+      }
+    });
+    $(".wmd-preview").addClass("well");
+  });
