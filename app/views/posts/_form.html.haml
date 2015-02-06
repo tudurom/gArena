@@ -1,4 +1,4 @@
-= form_for @post do |f|
+= simple_form_for @post, html: { class: 'form-horizontal' } do |f|
   - if @post.errors.any?
     #error_explanation
       %h2= "#{pluralize(@post.errors.count, "error")} prohibited this post from being saved:"
@@ -12,10 +12,12 @@
   .field
     = f.label :title
     = f.text_field :title
+  -# .field
+  -#   = f.label :content
+  -#   %br
+  -#   = f.text_area :content, id: 'editor wmd-input', class: 'wmd-input form-control', rows: '15'
   .field
-    = f.label :content
-    %br
-    = f.text_area :content, id: 'editor', class: 'form-control', rows: '15'
+    = f.input :content, :as => :pagedown, :input_html => { :preview => true }
   .field
     = f.label :author_name
     = f.text_field :author_name, :value => current_user.name
@@ -24,13 +26,13 @@
     = f.datetime_select :time, time: Time.now
   .actions
     = f.submit 'Save'
-:javascript
-  $(document).ready(function() {
-    $("textarea#editor").pagedownBootstrap({
-      'sanatize': false,
-      'help': function() {
-        alert('Meow');
-      }
-    });
-    $(".wmd-preview").addClass("well");
-  });
+// :javascript
+//   $(document).ready(function() {
+//     $("textarea#editor").pagedownBootstrap({
+//       'sanatize': false,
+//       'help': function() {
+//         alert('Meow');
+//       }
+//     });
+//     $(".wmd-preview").addClass("well");
+//   });

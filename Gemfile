@@ -14,6 +14,8 @@ gem 'haml'
 # Use Maruku(Markdown) for Markup
 gem 'maruku'
 gem 'haml-contrib'
+# Use pagedown-bootstrap for Markdown editor
+gem 'pagedown-bootstrap-rails'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
@@ -52,8 +54,8 @@ gem 'will_paginate'
 gem 'polymer-rails'
 gem 'polymer-core-rails'
 gem 'polymer-paper-rails'
-# For generating previews
-gem 'sanitize'
+# For simple forms
+gem 'simple_form'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

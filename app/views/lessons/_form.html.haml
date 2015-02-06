@@ -1,4 +1,4 @@
-= form_for @lesson do |f|
+= simple_form_for @lesson do |f|
   - if @lesson.errors.any?
     #error_explanation
       %h2= "#{pluralize(@lesson.errors.count, "error")} prohibited this lesson from being saved:"
@@ -20,7 +20,8 @@
     = f.text_field :teacher, :value => current_user.name, :required => true
   .field
     = f.label :content
-    = f.text_area :content, id: 'editor' , class: 'form-control', rows: 15, :required => true
+    /= f.text_area :content, id: 'editor' , class: 'form-control', rows: 15, :required => true
+    = f.input :content, :as => :pagedown, :input_html => { :preview => true }
   .actions
     = f.submit 'Save', class: "btn btn-default"
 :javascript
