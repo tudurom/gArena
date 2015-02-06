@@ -19,6 +19,6 @@ Run:
     bundle install
 then
 
-    rake db:migrate
+    rake db:setup
 
 Next, create your user. Coming back with an installation script!
