@@ -6,6 +6,7 @@ gem 'rails', '4.2.0'
 gem 'mysql2'
 # For uploads
 gem 'carrierwave'
+gem 'mini_magick'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use HAML for templating
@@ -51,6 +52,8 @@ gem 'will_paginate'
 gem 'polymer-rails'
 gem 'polymer-core-rails'
 gem 'polymer-paper-rails'
+# For generating previews
+gem 'sanitize'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   rescue_from CanCan::AccessDenied do |exception|
     flash[:error] = "Acces denied!"
-    redirect_to :back
+    redirect_to root_path
   end
 
   # Prevent CSRF attacks by raising an exception.

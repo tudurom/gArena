@@ -1,23 +1,26 @@
 = form_for @user, :url => {:action => "update"} do |f|
   .field
     = f.label :name, "Complete name"
-    = f.text_field :name, :required => true
+    = f.text_field :name, :required => true, :class => 'form-control'
 
   .field
     = f.label :email
-    = f.text_field :email, :required => true
+    = f.text_field :email, :required => true, :class => 'form-control'
 
   .field
     = f.label :clazz, "Class"
-    = f.text_field :clazz, :required => true
+    = f.text_field :clazz, :required => true, :class => 'form-control'
 
   .field
     = f.label :password, "Password"
-    = f.password_field :password, :autocomplete => "off", :required => true
+    = f.password_field :password, :autocomplete => "off", :required => true, :class => 'form-control'
 
   .field
     = f.label :password_confirmation
-    = f.password_field :password_confirmation, :required => true
+    = f.password_field :password_confirmation, :required => true, :class => 'form-control'
+  .field
+    = f.label :avatar
+    = f.file_field :avatar
   .field
     = f.hidden_field :id, :value => @user.id
 

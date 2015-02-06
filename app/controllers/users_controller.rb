@@ -20,6 +20,7 @@ class UsersController < ApplicationController
   def create
     pass = Devise.friendly_token.first(8)
     user = User.new({:email => params[:user][:email], :password => pass, :password_confirmation => pass, :name => params[:user][:name], :clazz => params[:user][:clazz]})
+    user.avatar = params[:user][:avatar]
     user.save!
     flash[:success] = "Account creation succesful."
     flash[:notice] = "Password: #{pass}"
@@ -62,7 +63,7 @@ class UsersController < ApplicationController
   def admin
     if can? :manage, :users then
       user = User.find(params[:user][:id])
-      user.admin = 1
+      user.role = User.roles[:admin]
       user.save
       flash[:success] = "User #{user.name} is now an admin."
     else
@@ -74,7 +75,7 @@ class UsersController < ApplicationController
   def demote
     if can? :manage, :users then
       user = User.find(params[:user][:id])
-      user.admin = 0
+      user.role = User.roles[:admin]
       user.save
       flash[:success] = "User #{user.name} is no longer an admin."
     else
@@ -91,6 +92,6 @@ class UsersController < ApplicationController
 
     def user_params
       # params.require(:user).permit(:email, :name, :clazz, :password, :password_confirmation)
-      params.require(:user).permit(:id, :email, :name, :clazz, :password, :password_confirmation, :admin)
+      params.require(:user).permit(:id, :email, :name, :clazz, :password, :password_confirmation, :role, :avatar, :avatar_cache)
     end
 end

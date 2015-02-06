@@ -7,5 +7,6 @@
       %paper-shadow{:z => 1, :class => "card"}
         %h3= link_to course.name, course_path(:id => course.id)
         %h5= "#{course.subject}, #{course.teacher}"
-%hr
-= link_to 'New Course', new_course_path
+- if can? :manage, :courses
+  %hr
+  = link_to 'New Course', new_course_path

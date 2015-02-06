@@ -5,4 +5,5 @@ module ApplicationHelper
   def script(*files)
     content_for(:scripts) { javascript_include_tag *files }
   end
+
 end

@@ -7,11 +7,9 @@ class User < ActiveRecord::Base
   devise :database_authenticatable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  # Give an avatar for each user
+  mount_uploader :avatar, AvatarUploader
   has_and_belongs_to_many :courses
-
-  def admin?
-    self.role == "admin"
-  end
 
   private
     def set_default_role

@@ -7,13 +7,13 @@ Rails.application.routes.draw do
   root :to => "posts#index"
 
   resource :users do
-    get 'users', :show
-    get 'users/manage', :manage
-    get 'users/test_alert', :test_alert
-    match "users/:id" => 'users#destroy', :via => :delete
-    get 'users/manage/:id' => "users#update"
-    get 'users/makeadmin' => 'users#admin'
-    get 'users/demote' => 'users#demote'
+    root :to => :show
+    get 'manage', :manage
+    get 'test_alert', :test_alert
+    match "destroy/:id" => 'users#destroy', :via => :delete
+    get 'manage/:id' => "users#update"
+    get 'makeadmin' => 'users#admin'
+    get 'demote' => 'users#demote'
   end
   resource :user, only: [:edit] do
     collection do

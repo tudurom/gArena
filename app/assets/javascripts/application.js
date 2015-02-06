@@ -7,6 +7,7 @@
 //= require jquery.tablesorter
 //= require jquery-validation
 //= require jquery.avgrund
+//= require 'inputs.js'
 //= require_tree .
 
 $(function() {

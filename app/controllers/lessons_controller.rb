@@ -1,6 +1,7 @@
 class LessonsController < ApplicationController
   before_action :set_lesson, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, :only => [:new, :edit, :create, :update]
+  before_action ->(action=:manage, object=:posts) { authorize! action, object }, only: %w{ new edit create update destroy }
 
   respond_to :html
 

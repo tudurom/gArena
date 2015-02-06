@@ -2,7 +2,12 @@
 
 - content_for :title do
   = "#{@user.name}'s profile"
-= link_to "Sign out", destroy_user_session_path, :method => :delete
+
+.text-center
+  = image_tag @user.avatar.thumbnail.url, :class => "img-circle"
+  %h4= @user.name
+  %h6= @user.clazz
+= link_to "Sign out", destroy_user_session_path(:id => @user.id), :method => :delete
 %hr
 %button.btn.btn-primary#show-button Edit account
 

@@ -28,9 +28,9 @@
         %td= link_to "Delete", users_path(:id => user.id), method: :delete, data: { confirm: "Are you sure?" }, :class => "text-danger"
         %td
           - if user.admin? == false
-            = link_to "Make admin", users_makeadmin_users_path(:user => {:id => user.id}), data: { confirm: "Pretty sure about this?" }, :class => "text-info"
+            = link_to "Make admin", makeadmin_users_path(:user => {:id => user.id}), data: { confirm: "Pretty sure about this?" }, :class => "text-info"
           - elsif user != current_user
-            = link_to "Demote", users_demote_users_path(:user => {:id => user.id}), data: { confirm: "Are you absolutely sure?" }, :class => "text-danger"
+            = link_to "Demote", demote_users_path(:user => {:id => user.id}), data: { confirm: "Are you absolutely sure?" }, :class => "text-danger"
           - else
             This is you.
 = will_paginate @users

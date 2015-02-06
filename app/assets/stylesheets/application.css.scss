@@ -18,10 +18,15 @@
 @import "font-awesome";
 
 .card {
+  @extend .container-fluid;
   margin-top: 10px;
   border-width: 5px;
   border-radius: 2px;
   text-align: left;
   z-index: 1;
-  height: 15rem;
+  min-height: 15rem;
+}
+
+body {
+  padding-top: 70px;
 }
