@@ -5,13 +5,13 @@ class Ability
     # Define abilities for the passed in user here. For example:
     #
       user ||= User.new # guest user (not logged in)
-      if user.role == "admin"
+      if user.admin?
         can :manage, :all
-      elsif user.role == "teacher"
+      elsif user.teacher?
         teacher
-      elsif user.role == "super_teacher"
+      elsif user.super_teacher?
         super_teacher
-      elsif user.role == "student"
+      elsif user.student?
         student
       else
         guest
@@ -45,6 +45,7 @@ class Ability
       can :manage, :courses
       can :manage, :lessons
       can :manage, :users
+      can :manage, :lessons
     end
 
     def super_teacher
@@ -55,6 +56,7 @@ class Ability
     def student
       can :view, :courses
       can :view, :lessons
+      can :view_create, :homework
     end
 
     def guest

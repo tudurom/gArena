@@ -1,0 +1,13 @@
+= simple_form_for(@homework) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :title
+    = f.input :content, :as => :pagedown, :input_html => { :preview => true }
+    = f.label :lesson_id, "Lesson"
+    = f.select :lesson_id, options_from_collection_for_select(Lesson.all, "id", "title")
+    = f.input :student, :input_html => { :value => current_user.name }, :as => :hidden
+    = f.input :time, :disabled => true, :as => :hidden
+
+  .form-actions
+    = f.button :submit

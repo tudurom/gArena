@@ -1,0 +1,8 @@
+%h3= @homework.title
+%h5= @homework.student
+%h6= @homework.lesson.title
+%p
+  :markdown
+    #{@homework.content}
+
+= link_to 'Back', homeworks_path

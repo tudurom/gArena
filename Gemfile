@@ -47,6 +47,7 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-jquery.tablesorter'
   gem 'rails-assets-jquery.avgrund'
   gem 'rails-assets-flat-ui'
+  gem 'rails-assets-bootstrap-tour'
 end
 # Pagination
 gem 'will_paginate'

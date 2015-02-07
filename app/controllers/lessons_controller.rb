@@ -1,7 +1,7 @@
 class LessonsController < ApplicationController
   before_action :set_lesson, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, :only => [:new, :edit, :create, :update]
-  before_action ->(action=:manage, object=:posts) { authorize! action, object }, only: %w{ new edit create update destroy }
+  before_action ->(action=:manage, object=:lessons) { authorize! action, object }, only: %w{ new edit create update destroy }
 
   respond_to :html
 
@@ -36,6 +36,11 @@ class LessonsController < ApplicationController
   def destroy
     @lesson.destroy
     respond_with(@lesson)
+  end
+
+  def homework
+    @homeworks = Lesson.find(params[:id]).homeworks
+    respond_with(@homeworks)
   end
 
   private

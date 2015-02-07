@@ -1,0 +1,9 @@
+- content_for :title, "Homework solved for #{Lesson.find(params[:id]).title}"
+
+%h1 Listing homework solves
+.container
+  - @homeworks.each do |homework|
+    .col-md-4
+      %paper-shadow{:z => 1, :class => 'card'}
+        %h4= link_to homework.title, homework_path(:id => homework.id)
+        %h5= homework.student

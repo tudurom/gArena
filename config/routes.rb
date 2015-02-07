@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
+  resources :homeworks
+
   resources :courses
 
   resources :lessons
-
+  resource :lessons do
+    get '/homework/:id' => 'lessons#homework'
+  end
   resources :posts
   root :to => "posts#index"
 

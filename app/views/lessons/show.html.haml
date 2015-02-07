@@ -9,4 +9,7 @@
 - if can? :manage, @lessons
   = link_to 'Edit', edit_lesson_path(@lesson)
 
+- if current_user.student? && current_user.courses.include?(@lesson.course)
+  = link_to 'Submit homework solve', new_homework_path
+%hr
 = link_to 'Back', '#', class: "back_link"

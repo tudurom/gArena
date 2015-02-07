@@ -9,6 +9,7 @@
 #= require jquery.avgrund
 #= require pagedown_bootstrap
 #= require pagedown_init
+#= require bootstrap-tour
 
 # $(function() {
 #   $('.back_link').click(function() {
