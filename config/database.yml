@@ -13,7 +13,7 @@ default: &default
   adapter: mysql2
   encoding: utf8
   pool: 5
-  username: garena
+  username: guser
   password: garena
   socket: /var/run/mysqld/mysqld.sock
 
@@ -49,6 +49,6 @@ test:
 #
 production:
   <<: *default
-  database: gArena_production
-  username: gArena
+  database: gArena
+  username: guser
   password: <%= ENV['GARENA_DATABASE_PASSWORD'] %>
