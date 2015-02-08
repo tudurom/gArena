@@ -19,9 +19,6 @@
     = f.label :password_confirmation
     = f.password_field :password_confirmation, :required => true, :class => 'form-control'
   .field
-    = f.label :avatar
-    = f.file_field :avatar
-  .field
     = f.hidden_field :id, :value => @user.id
 
   .action_container

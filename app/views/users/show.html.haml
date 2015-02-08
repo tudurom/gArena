@@ -10,6 +10,7 @@
 = link_to "Sign out", destroy_user_session_path(:id => @user.id), :method => :delete
 %hr
 %button.btn.btn-primary#show-button Edit account
+%a{:href => avatar_users_path, :class => "btn btn-default"} Change avatar
 
 %div{:id => "hidden_form", :style => "display: none;"}
   = render "change"

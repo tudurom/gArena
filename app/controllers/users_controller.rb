@@ -39,6 +39,15 @@ class UsersController < ApplicationController
       render "show"
     end
   end
+  def update_avatar
+    current_user.avatar = user_params[:avatar]
+    current_user.save!
+
+    redirect_to users_path
+  end
+  def avatar
+    @user = current_user
+  end
   def edit
     @user = User.find(user_params[:id])
     respond_with @user

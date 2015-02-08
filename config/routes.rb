@@ -18,6 +18,8 @@ Rails.application.routes.draw do
     get 'manage/:id' => "users#update"
     get 'makeadmin' => 'users#admin'
     get 'demote' => 'users#demote'
+    match 'update_avatar' => 'users#update_avatar', :via => :patch
+    get 'avatar', :avatar
   end
   resource :user, only: [:edit] do
     collection do

@@ -167,7 +167,7 @@ GEM
     rails-assets-bootstrap-tour (0.10.1)
       rails-assets-bootstrap (>= 2.3.2)
       rails-assets-jquery (>= 1.9.0)
-    rails-assets-d3 (3.5.3)
+    rails-assets-d3 (3.5.4)
     rails-assets-flat-ui (2.2.2)
       rails-assets-videojs (~> 4.7.2)
     rails-assets-jquery (2.1.3)
