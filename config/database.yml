@@ -50,5 +50,5 @@ test:
 production:
   <<: *default
   database: gArena
-  username: guser
+  username: root
   password: <%= ENV['GARENA_DATABASE_PASSWORD'] %>
