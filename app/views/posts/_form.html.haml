@@ -1,38 +1,23 @@
 = simple_form_for @post, html: { class: 'form-horizontal' } do |f|
   - if @post.errors.any?
     #error_explanation
-      %h2= "#{pluralize(@post.errors.count, "error")} prohibited this post from being saved:"
+      %h2= t('.pluralizeposterrorscount_error', :pluralizeposterrorscount_error => (pluralize(@post.errors.count, "error")))
       %ul
         - @post.errors.full_messages.each do |msg|
           %li= msg
 
-  .field
-    = f.label :name
-    = f.text_field :name
-  .field
-    = f.label :title
-    = f.text_field :title
+  = f.input :name, required: true
+
+  = f.input :title, required: true
   -# .field
   -#   = f.label :content
   -#   %br
   -#   = f.text_area :content, id: 'editor wmd-input', class: 'wmd-input form-control', rows: '15'
-  .field
-    = f.input :content, :as => :pagedown, :input_html => { :preview => true }
-  .field
-    = f.label :author_name
-    = f.text_field :author_name, :value => current_user.name
-  .field
-    = f.label :time
-    = f.datetime_select :time, time: Time.now
+  = f.input :content, :as => :pagedown, :input_html => { :preview => true }
+
+  = f.input :author_name, :value => current_user.name
+
+  = f.label :time
+  = f.datetime_select :time, time: Time.now
   .actions
-    = f.submit 'Save'
-// :javascript
-//   $(document).ready(function() {
-//     $("textarea#editor").pagedownBootstrap({
-//       'sanatize': false,
-//       'help': function() {
-//         alert('Meow');
-//       }
-//     });
-//     $(".wmd-preview").addClass("well");
-//   });
+    = f.button :submit, t('.save'), class: 'btn btn-primary btn-embossed'

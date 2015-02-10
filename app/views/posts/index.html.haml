@@ -1,7 +1,7 @@
 - content_for :title, 'Posts'
 
 - if !@posts.any?
-  %h1 No posts
+  %h1= t('.no_posts')
 
 - @posts.each do |post|
   -# %h1= post.title
@@ -14,6 +14,6 @@
 
 - if can? :manage, @posts
   %hr
-  = link_to 'New Post', new_post_path
+  = link_to t('.new_post'), new_post_path
 %hr
 = will_paginate @posts

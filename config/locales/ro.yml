@@ -1,0 +1,108 @@
+---
+en:
+  hello: Hello world
+  posts:
+    index:
+      no_posts: Nici un articol
+      new_post: Articol nou
+    new:
+      new_post: Articol nou
+      back: Inapoi
+    post:
+      posttitle: '%{posttitle}'
+      by_postauthor_name_at_posttime: 'De %{postauthor_name} la %{posttime}'
+    edit:
+      editing_post: Editeaza articolul
+      show: Afiseaza
+      back: Inapoi
+      edit: Editeaza
+      delete: Sterge
+    form:
+      pluralizeposterrorscount_error: '%{pluralizeposterrorscount_error} prohibited
+        this post from being saved:'
+      save: Salveaza
+  homeworks:
+    new:
+      new_homework: Tema noua
+      back: Inapoi
+    show:
+      back: Inapoi
+  users:
+    manage:
+      manage_users: Administreaza utilizatorii
+      current_users: Utilizatori
+      name: Nume
+      email: Email
+      class: Clasa
+      last_logged_in: Ultima data logat la data de
+      admin: Administrator?
+      role: Rol
+      delete: Sterge
+      make_admin: Fa administrator
+      demote: Demote
+      this_is_you: Tu esti acesta
+      new_user: Utilizator nou
+      create_it: Creaza!
+    avatar:
+      here_you_can_update_your_profi: Aici iti poti actualiza poza de profil
+    show:
+      usernames_profile: 'Profilul lui %{username}'
+      sign_out: Iesi
+      edit_account: Editeaza contul
+      change_avatar: Schimba poza de profil
+      manage_users: Administreaza utilizatori
+    change:
+      save: Salveaza
+  layouts:
+    application:
+      title: '%{title} gArena'
+      toggle_navigation: Toggle navigation
+      garena: gArena
+      home: Acasa
+      courses: Cursuri
+      my_profile: Profilul meu
+      signed_in_as: Logat ca si
+      sign_in: Intra
+  lessons:
+    new:
+      new_lesson: Lectie noua
+      back: Inapoi
+    show:
+      written_by_lessonteacher_at_le: 'Scris de %{lessonteacher} la %{lessontime}'
+      edit: Editeaza
+      submit_homework_solve: Trimite rezolvare la tema
+      back: Inapoi
+    edit:
+      edit_lessontitle: 'Editeaza %{lessontitle}'
+      show: Afiseaza
+      '': "|"
+      back: Inapoi
+    homework:
+      listing_homework_solves: Rezolvari la teme
+    form:
+      pluralizelessonerrorscount_err: '%{pluralizelessonerrorscount_err} prohibited
+        this lesson from being saved:'
+      save: Save
+  courses:
+    new:
+      new_course: Curs nou
+      back: Inapoi
+    show:
+      coursesubject_courseteacher: '%{coursesubject}, %{courseteacher}'
+      edit: Editeaza
+      '': "|"
+      back: Inapoi
+      new_lesson: Lectie noua
+    edit:
+      editing_course: Editeaza curs
+      show: Afiseaza
+      '': "|"
+      back: Inapoi
+    index:
+      all_courses: Toate cursurile
+      coursesubject_courseteacher: '%{coursesubject}, %{courseteacher}'
+      new_course: Curs nou
+    form:
+      pluralizecourseerrorscount_err: '%{pluralizecourseerrorscount_err} prohibited
+        this course from being saved:'
+      save: Salveaza

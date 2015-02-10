@@ -2,18 +2,18 @@
 - script 'users-manage'
 - style 'users-manage'
 
-%h1 Manage users
-%h3 Current users
+%h1= t('.manage_users')
+%h3= t('.current_users')
 
 %table{:style => "width: 100%", :id => "usr-table", :validate => 1}
   %thead
     %tr
-      %th Name
-      %th Email
-      %th Class
-      %th Last logged in
-      %th Admin?
-      %th Role
+      %th= t('.name')
+      %th= t('.email')
+      %th= t('.class')
+      %th= t('.last_logged_in')
+      %th= t('.admin')
+      %th= t('.role')
       %th
       %th
   %tbody
@@ -25,19 +25,19 @@
         %td= user.last_sign_in_at
         %td= user.admin?
         %td= user.role.capitalize
-        %td= link_to "Delete", users_path(:id => user.id), method: :delete, data: { confirm: "Are you sure?" }, :class => "text-danger"
+        %td= link_to t('.delete'), users_path(:id => user.id), method: :delete, data: { confirm: "Are you sure?" }, :class => "text-danger"
         %td
           - if user.admin? == false
-            = link_to "Make admin", makeadmin_users_path(:user => {:id => user.id}), data: { confirm: "Pretty sure about this?" }, :class => "text-info"
+            = link_to t('.make_admin'), makeadmin_users_path(:user => {:id => user.id}), data: { confirm: "Pretty sure about this?" }, :class => "text-info"
           - elsif user != current_user
-            = link_to "Demote", demote_users_path(:user => {:id => user.id}), data: { confirm: "Are you absolutely sure?" }, :class => "text-danger"
+            = link_to t('.demote'), demote_users_path(:user => {:id => user.id}), data: { confirm: "Are you absolutely sure?" }, :class => "text-danger"
           - else
-            This is you.
+            = t('.this_is_you')
 = will_paginate @users
 
 %hr
 
-%button.btn.btn-primary#show-button New user
+%button.btn.btn-primary#show-button= t('.new_user')
 %div{:id => "task-form", :style => "display: none;"}
   = form_for @user do |f|
     = f.label :name
@@ -49,4 +49,4 @@
     = f.label :class
     = f.text_field :clazz, :class => "form-control", :required => ""
     %br
-    = f.submit 'Create it!', :class => "btn btn-embossed btn-success"
+    = f.submit t('.create_it'), :class => "btn btn-embossed btn-success"

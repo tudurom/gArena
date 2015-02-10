@@ -1,6 +1,6 @@
 %html
   %head
-    %title= "#{yield(:title) + " |" if yield(:title) != ""} gArena"
+    %title= t('.title', :title => (yield(:title) + " |" if yield(:title) != ""))
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = stylesheet_link_tag    params[:controller]
     = yield(:styles)
@@ -15,24 +15,24 @@
       .container-fluid
         .navbar-header
           %button{:type => "button", :class => "navbar-toggle collapsed", :data => {"toggle" => "collapse", "target" => "#collapse-button"}}
-            %span.sr-only Toggle navigation
+            %span.sr-only= t('.toggle_navigation')
             %span.icon-bar
             %span.icon-bar
             %span.icon-bar
-          %a{:class => "navbar-brand", :href => "/"} gArena
+          %a{:class => "navbar-brand", :href => "/"}= t('.garena')
 
         .collapse.navbar-collapse#collapse-button
           %ul.nav.navbar-nav
-            %li= link_to "Home", root_path
-            %li= link_to "Courses", courses_path
-            %li= link_to "My profile", users_path
+            %li= link_to t('.home'), root_path
+            %li= link_to t('.courses'), courses_path
+            %li= link_to t('.my_profile'), users_path
           %p.navbar-text.navbar-right
             - if user_signed_in?
-              Signed in as
+              = t('.signed_in_as')
               = link_to current_user.name, users_path
               = link_to image_tag(current_user.avatar.pic.url, :class => "img-circle"), users_path
             - else
-              = link_to "Sign in", new_user_session_path
+              = link_to t('.sign_in'), new_user_session_path
     .container
       - if flash[:success]
         .alert.alert-success

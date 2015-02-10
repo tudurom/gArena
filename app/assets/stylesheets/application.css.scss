@@ -14,13 +14,13 @@
  */
 //@import "bootstrap-sprockets";
 @import "bootstrap";
+@import "bootstrap-tour";
 @import "flat-ui";
 @import "font-awesome";
 @import "pagedown_bootstrap";
-@import "bootstrap-tour";
 
 .card {
-  @extend .container-fluid;
+  @extend .container-fluid !optional;
   margin-top: 10px;
   border-width: 5px;
   border-radius: 2px;

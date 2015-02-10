@@ -1,7 +1,7 @@
 = simple_form_for @course do |f|
   - if @course.errors.any?
     #error_explanation
-      %h2= "#{pluralize(@course.errors.count, "error")} prohibited this course from being saved:"
+      %h2= t('.pluralizecourseerrorscount_err', :pluralizecourseerrorscount_err => (pluralize(@course.errors.count, "error")))
       %ul
         - @course.errors.full_messages.each do |msg|
           %li= msg
@@ -20,4 +20,4 @@
     = select("students", "user_id", User.where(:role => User.roles[:student]).collect {|s| [s.name, s.id]}, {:multiple => true}, :class => 'form-control')
   %br
   .actions
-    = f.submit 'Save', :class => 'btn btn-embossed btn-primary'
+    = f.submit t('.save'), :class => 'btn btn-embossed btn-primary'

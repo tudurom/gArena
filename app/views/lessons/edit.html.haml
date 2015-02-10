@@ -1,9 +1,9 @@
 - content_for :title, "Edit #{@lesson.title}"
 
-%h1= "Edit #{@lesson.title}"
+%h1= t('.edit_lessontitle', :lessontitle => (@lesson.title))
 
 = render 'form'
 
-= link_to 'Show', @lesson
+= link_to t('.show'), @lesson
 \|
-= link_to 'Back', lessons_path
+= link_to t('.back'), lessons_path

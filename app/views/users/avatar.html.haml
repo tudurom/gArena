@@ -1,6 +1,6 @@
 - content_for :title, 'Change avatar'
 
-%h2 Here you can update your profile picture
+%h2= t('.here_you_can_update_your_profi')
 
 = simple_form_for @user, :url => update_avatar_users_path do |f|
   = f.input :avatar, :as => :file

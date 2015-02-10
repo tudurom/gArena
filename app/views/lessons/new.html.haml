@@ -1,7 +1,7 @@
 - content_for :title, "New lesson"
 
-%h1 New lesson
+%h1= t('.new_lesson')
 
 = render 'form'
 
-= link_to 'Back', lessons_path
+= link_to t('.back'), lessons_path

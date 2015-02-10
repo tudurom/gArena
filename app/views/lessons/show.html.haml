@@ -2,14 +2,14 @@
 
 %h2= @lesson.title
 %h5
-  Written by #{@lesson.teacher} at #{@lesson.time}
+  = t('.written_by_lessonteacher_at_le', :lessonteacher => (@lesson.teacher), :lessontime => (@lesson.time))
 :markdown
   #{@lesson.content}
 
 - if can? :manage, @lessons
-  = link_to 'Edit', edit_lesson_path(@lesson)
+  = link_to t('.edit'), edit_lesson_path(@lesson)
 
 - if current_user.student? && current_user.courses.include?(@lesson.course)
-  = link_to 'Submit homework solve', new_homework_path
+  = link_to t('.submit_homework_solve'), new_homework_path
 %hr
-= link_to 'Back', '#', class: "back_link"
+= link_to t('.back'), '#', class: "back_link"

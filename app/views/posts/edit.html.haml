@@ -1,8 +1,8 @@
 - content_for :title, "Edit #{@post.name}"
-%h1 Editing post
+%h1= t('.editing_post')
 
 = render 'form'
 
-= link_to 'Show', @post
+= link_to t('.show'), @post
 
-= link_to 'Back', posts_path
+= link_to t('.back'), posts_path

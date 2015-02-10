@@ -1,6 +1,6 @@
 %h1
-  %a= link_to "#{post.title}", post_path(post)
-%h6= "By #{post.author_name} at #{post.time}"
+  %a= link_to t('.posttitle', :posttitle => (post.title)), post_path(post)
+%h6= t('.by_postauthor_name_at_posttime', :postauthor_name => (post.author_name), :posttime => (post.time))
 :markdown
   #{post.content}
 %br

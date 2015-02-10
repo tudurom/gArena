@@ -1,19 +1,19 @@
 - script 'users-show'
 
 - content_for :title do
-  = "#{@user.name}'s profile"
+  =t('.usernames_profile', :username => (@user.name))
 
 .text-center
   = image_tag @user.avatar.thumbnail.url, :class => "img-circle"
   %h4= @user.name
   %h6= @user.clazz
-= link_to "Sign out", destroy_user_session_path(:id => @user.id), :method => :delete
+= link_to t('.sign_out'), destroy_user_session_path(:id => @user.id), :method => :delete
 %hr
-%button.btn.btn-primary#show-button Edit account
-%a{:href => avatar_users_path, :class => "btn btn-default"} Change avatar
+%button.btn.btn-primary#show-button= t('.edit_account')
+%a{:href => avatar_users_path, :class => "btn btn-default"}= t('.change_avatar')
 
 %div{:id => "hidden_form", :style => "display: none;"}
   = render "change"
 - if can? :manage, @users
   %hr
-  = link_to "Manage users", manage_users_path
+  = link_to t('.manage_users'), manage_users_path

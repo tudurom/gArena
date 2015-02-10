@@ -1,12 +1,12 @@
 - content_for :title, 'All courses'
 
-%h1 All courses
+%h1= t('.all_courses')
 .container
   - @courses.each do |course|
     .col-md-4
       %paper-shadow{:z => 1, :class => "card"}
         %h3= link_to course.name, course_path(:id => course.id)
-        %h5= "#{course.subject}, #{course.teacher}"
+        %h5= t('.coursesubject_courseteacher', :coursesubject => (course.subject), :courseteacher => (course.teacher))
 - if can? :manage, :courses
   %hr
-  = link_to 'New Course', new_course_path
+  = link_to t('.new_course'), new_course_path

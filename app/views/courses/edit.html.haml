@@ -1,9 +1,9 @@
 - content_for :title, 'Edit course'
 
-%h1 Editing course
+%h1= t('.editing_course')
 
 = render 'form'
 
-= link_to 'Show', @course
+= link_to t('.show'), @course
 \|
-= link_to 'Back', courses_path
+= link_to t('.back'), courses_path

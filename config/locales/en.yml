@@ -1,23 +1,108 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
+---
 en:
-  hello: "Hello world"
+  hello: Hello world
+  posts:
+    index:
+      no_posts: No posts
+      new_post: New Post
+    new:
+      new_post: New post
+      back: Back
+    post:
+      posttitle: '%{posttitle}'
+      by_postauthor_name_at_posttime: 'By %{postauthor_name} at %{posttime}'
+    edit:
+      editing_post: Editing post
+      show: Show
+      back: Back
+      edit: Edit
+      delete: Delete
+    form:
+      pluralizeposterrorscount_error: '%{pluralizeposterrorscount_error} prohibited
+        this post from being saved:'
+      save: Save
+  homeworks:
+    new:
+      new_homework: New homework
+      back: Back
+    show:
+      back: Back
+  users:
+    manage:
+      manage_users: Manage users
+      current_users: Current users
+      name: Name
+      email: Email
+      class: Class
+      last_logged_in: Last logged in
+      admin: Admin?
+      role: Role
+      delete: Delete
+      make_admin: Make admin
+      demote: Demote
+      this_is_you: This is you.
+      new_user: New user
+      create_it: Create it!
+    avatar:
+      here_you_can_update_your_profi: Here you can update your profile picture
+    show:
+      usernames_profile: '%{username}''s profile'
+      sign_out: Sign out
+      edit_account: Edit account
+      change_avatar: Change avatar
+      manage_users: Manage users
+    change:
+      save: Save
+  layouts:
+    application:
+      title: '%{title} gArena'
+      toggle_navigation: Toggle navigation
+      garena: gArena
+      home: Home
+      courses: Courses
+      my_profile: My profile
+      signed_in_as: Signed in as
+      sign_in: Sign in
+  lessons:
+    new:
+      new_lesson: New lesson
+      back: Back
+    show:
+      written_by_lessonteacher_at_le: 'Written by %{lessonteacher} at %{lessontime}'
+      edit: Edit
+      submit_homework_solve: Submit homework solve
+      back: Back
+    edit:
+      edit_lessontitle: 'Edit %{lessontitle}'
+      show: Show
+      '': "|"
+      back: Back
+    homework:
+      listing_homework_solves: Listing homework solves
+    form:
+      pluralizelessonerrorscount_err: '%{pluralizelessonerrorscount_err} prohibited
+        this lesson from being saved:'
+      save: Save
+  courses:
+    new:
+      new_course: New course
+      back: Back
+    show:
+      coursesubject_courseteacher: '%{coursesubject}, %{courseteacher}'
+      edit: Edit
+      '': "|"
+      back: Back
+      new_lesson: New lesson
+    edit:
+      editing_course: Editing course
+      show: Show
+      '': "|"
+      back: Back
+    index:
+      all_courses: All courses
+      coursesubject_courseteacher: '%{coursesubject}, %{courseteacher}'
+      new_course: New Course
+    form:
+      pluralizecourseerrorscount_err: '%{pluralizecourseerrorscount_err} prohibited
+        this course from being saved:'
+      save: Save

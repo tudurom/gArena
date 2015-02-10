@@ -1,6 +1,6 @@
 - content_for :title, "Homework solved for #{Lesson.find(params[:id]).title}"
 
-%h1 Listing homework solves
+%h1= t('.listing_homework_solves')
 .container
   - @homeworks.each do |homework|
     .col-md-4

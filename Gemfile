@@ -81,4 +81,7 @@ group :development, :test do
 
   # Toy smtp server
   gem 'mailcatcher'
+
+  # Extracts text for translations
+  gem 'haml-i18n-extractor'
 end
