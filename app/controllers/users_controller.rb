@@ -13,7 +13,7 @@ class UsersController < ApplicationController
       @user = User.new
       respond_with(@users)
     else
-      flash[:error] = "Acces denied!"
+      flash[:error] = t '.flashes.errors.access_denied'
       redirect_to root_url
     end
   end
@@ -22,8 +22,8 @@ class UsersController < ApplicationController
     user = User.new({:email => params[:user][:email], :password => pass, :password_confirmation => pass, :name => params[:user][:name], :clazz => params[:user][:clazz]})
     user.avatar = params[:user][:avatar]
     user.save!
-    flash[:success] = "Account creation succesful."
-    flash[:notice] = "Password: #{pass}"
+    flash[:success] = t '.flashes.successes.account_creation_success'
+    flash[:notice] = t '.flashes.notices.password', password: pass
     redirect_to :action => "manage"
   end
   def update
@@ -33,7 +33,7 @@ class UsersController < ApplicationController
       if @user == current_user then
         sign_in @user, :bypass => true
       end
-      flash[:success] = "Success!"
+      flash[:success] = t '.flashes.successes.success'
       redirect_to root_path
     else
       render "show"
@@ -57,7 +57,7 @@ class UsersController < ApplicationController
     name = @user.name
 
     if @user.destroy then
-      redirect_to manage_users_url, notice: "User \"#{name}\" deleted."
+      redirect_to manage_users_url, notice: t('.flashes.notices.user_deleted', user_name: name)
     end
   end
 

@@ -20,6 +20,9 @@
     = f.password_field :password_confirmation, :required => true, :class => 'form-control'
   .field
     = f.hidden_field :id, :value => @user.id
+  - if can? :manage, :users
+    .field
+      = f.select :role, User.roles.keys.to_a.map { |role| [role.humanize, role] }, {}, :class =>  "form-control select select-default select-block mbl"
 
   .action_container
     = f.submit t('.save'), :class => "btn btn-embossed btn-primary"

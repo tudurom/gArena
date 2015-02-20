@@ -8,7 +8,8 @@
   = f.input :title, :required => true
 
   = f.label :course
-  = f.select :course_id, options_from_collection_for_select(Course.all, "id", "name"), {}, {required: true, class: 'form-control'}
+  = f.select :course_id, options_from_collection_for_select(Course.all, "id", "name", @lesson.course_id), {}, {required: true, class: 'form-control select select-default select-block mbl'}
+  %br
 
   = f.label :time
   = f.datetime_select :time, :required => true

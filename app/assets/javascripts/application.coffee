@@ -24,3 +24,4 @@ $ ->
     history.back()
 
     return false
+  $("select.select").select2({dropdownCssClass: 'dropdown-inverse'})

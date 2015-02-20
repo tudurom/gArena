@@ -27,6 +27,9 @@ en:
       back: Back
     show:
       back: Back
+    flashes:
+      errors:
+        not_found: This page does not exist.
   users:
     manage:
       manage_users: Manage users
@@ -53,6 +56,16 @@ en:
       manage_users: Manage users
     change:
       save: Save
+    flashes:
+      errors:
+        access_denied: Access denied!
+      successes:
+        account_creation_success: Account creation successfull.
+        success: Success!
+      notices:
+        password: 'Password: %{password}'
+        user_deleted: 'User "%{user_name}" deleted'
+
   layouts:
     application:
       title: '%{title} gArena'
@@ -83,6 +96,9 @@ en:
       pluralizelessonerrorscount_err: '%{pluralizelessonerrorscount_err} prohibited
         this lesson from being saved:'
       save: Save
+    flashes:
+      alerts:
+        viewing: To view a lesson, go to the corresponding course and find the lesson
   courses:
     new:
       new_course: New course

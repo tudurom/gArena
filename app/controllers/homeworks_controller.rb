@@ -6,7 +6,7 @@ class HomeworksController < ApplicationController
   respond_to :html
 
   def index
-    flash[:error] = "This page does not exist"
+    flash[:error] = ".flashes.errors.not_found"
     redirect_to root_path
   end
 

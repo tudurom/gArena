@@ -28,6 +28,8 @@ gem 'jquery-rails'
 # Use Twitter Bootstrap for styles
 gem 'bootstrap-sass', '~> 3.3.1'
 gem 'autoprefixer-rails'
+# For flat-ui select
+gem "select2-rails"
 # Use fontawesome for icons ;)
 gem 'font-awesome-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks

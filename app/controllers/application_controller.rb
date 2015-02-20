@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   rescue_from CanCan::AccessDenied do |exception|
-    flash[:error] = "Acces denied!"
+    flash[:error] = t('flashes.errors.denied')
     redirect_to root_path
   end
 

@@ -12,7 +12,6 @@
       %th= t('.email')
       %th= t('.class')
       %th= t('.last_logged_in')
-      %th= t('.admin')
       %th= t('.role')
       %th
       %th
@@ -23,8 +22,7 @@
         %td= user.email
         %td= user.clazz
         %td= user.last_sign_in_at
-        %td= user.admin?
-        %td= user.role.capitalize
+        %td= user.role.humanize
         %td= link_to t('.delete'), users_path(:id => user.id), method: :delete, data: { confirm: "Are you sure?" }, :class => "text-danger"
         %td
           - if user.admin? == false
