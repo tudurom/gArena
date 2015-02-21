@@ -53,6 +53,7 @@ source 'https://rails-assets.org' do
 end
 # Pagination
 gem 'will_paginate'
+gem 'will_paginate-bootstrap'
 # Polymer is the future
 gem 'polymer-rails'
 gem 'polymer-core-rails'

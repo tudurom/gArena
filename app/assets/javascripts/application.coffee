@@ -19,9 +19,12 @@
 #   });
 # });
 
-$ ->
+ready = ->
   $('.back_link').click ->
     history.back()
 
     return false
   $("select.select").select2({dropdownCssClass: 'dropdown-inverse'})
+
+$(document).ready(ready)
+$(document).on('page:load', ready)
