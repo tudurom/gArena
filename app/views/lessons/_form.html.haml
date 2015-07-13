@@ -1,22 +1,25 @@
-= simple_form_for @lesson do |f|
-  - if @lesson.errors.any?
-    #error_explanation
-      %h2= t('.pluralizelessonerrorscount_err', :pluralizelessonerrorscount_err => (pluralize(@lesson.errors.count, "error")))
-      %ul
-        - @lesson.errors.full_messages.each do |msg|
-          %li= msg
-  = f.input :title, :required => true
+.row
+  .col.s12
+    = simple_form_for @lesson do |f|
+      - if @lesson.errors.any?
+        #error_explanation
+          %h2= t('.pluralizelessonerrorscount_err', :pluralizelessonerrorscount_err => (pluralize(@lesson.errors.count, "error")))
+          %ul
+            - @lesson.errors.full_messages.each do |msg|
+              %li= msg
+      = f.input :title, :required => true
 
-  = f.label :course
-  = f.select :course_id, options_from_collection_for_select(Course.all, "id", "name", @lesson.course_id), {}, {required: true, class: 'form-control select select-default select-block mbl'}
-  %br
+      = f.label :course
+      .input-field
+        = f.select :course_id, options_from_collection_for_select(Course.all, "id", "name", @lesson.course_id), {}, {required: true, class: 'form-control'}
+      %br
 
-  = f.label :time
-  = f.datetime_select :time, :required => true
+      = f.label :time
+      = f.datetime_select :time
 
-  = f.input :teacher, value: current_user.name, :required => true
+      = f.input :teacher, value: current_user.name, :required => true
 
-  /= f.text_area :content, id: 'editor' , class: 'form-control', rows: 15, :required => true
-  = f.input :content, :as => :pagedown, :input_html => { :preview => true }
-  .actions
-    = f.submit t('.save'), class: "btn btn-default"
+      /= f.text_area :content, id: 'editor' , class: 'form-control', rows: 15, :required => true
+      = f.input :content, :as => :pagedown
+      .actions
+        = f.submit t('.save'), class: "btn"

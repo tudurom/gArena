@@ -3,10 +3,14 @@
 - content_for :title do
   =t('.usernames_profile', :username => (@user.name))
 
-.text-center
-  = image_tag @user.avatar.thumbnail.url, :class => "img-circle"
-  %h4= @user.name
-  %h6= @user.clazz
+.row
+  .card
+    .card-image
+      = image_tag @user.avatar.thumbnail.url, :class => "responsive-img circle"
+    .card-content
+      %p
+        %h3= @user.name
+        %h6= @user.clazz
 = link_to t('.sign_out'), destroy_user_session_path(:id => @user.id), :method => :delete
 %hr
 %button.btn.btn-primary#show-button= t('.edit_account')

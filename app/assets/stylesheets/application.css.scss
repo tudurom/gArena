@@ -12,12 +12,11 @@
  *
  *= require_self
  */
-//@import "bootstrap-sprockets";
-@import "bootstrap";
+@import "bootstrap-sprockets";
 @import "bootstrap-tour";
-@import "flat-ui";
 @import "font-awesome";
-@import "pagedown_bootstrap";
+@import "materialize";
+@import "markdown";
 
 .card {
   @extend .container-fluid !optional;
@@ -30,5 +29,11 @@
 }
 
 body {
-  padding-top: 70px;
+  //padding-top: 70px;
+}
+
+@media only screen and (min-width: 993px) {
+  header, main, footer {
+    padding-left: 240px;
+  }
 }

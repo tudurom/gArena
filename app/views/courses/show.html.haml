@@ -2,12 +2,14 @@
 
 %h1= @course.name
 %h6= t('.coursesubject_courseteacher', :coursesubject => (@course.subject), :courseteacher => (@course.teacher))
-.container
+.row
   - @course.lessons.each do |lesson|
-    .col-md-4
-      %paper-shadow{:z => 1, :class => "card"}
-        %h4= link_to lesson.title, lesson_path(:id => lesson.id)
-        %h5= lesson.time
+    .col.s4
+      %div{:class => "card hoverable"}
+        .card-content
+          .card-title= link_to lesson.title, lesson_path(:id => lesson.id)
+          %p
+            = lesson.time
 
 = link_to t('.edit'), edit_course_path(@course)
 \|

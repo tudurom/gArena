@@ -14,8 +14,9 @@ gem 'haml'
 # Use Maruku(Markdown) for Markup
 gem 'maruku'
 gem 'haml-contrib'
-# Use pagedown-bootstrap for Markdown editor
-gem 'pagedown-bootstrap-rails'
+# Use pagedown as Markdown editor
+gem 'pagedown-rails'
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
@@ -54,10 +55,8 @@ end
 # Pagination
 gem 'will_paginate'
 gem 'will_paginate-bootstrap'
-# Polymer is the future
-gem 'polymer-rails'
-gem 'polymer-core-rails'
-gem 'polymer-paper-rails'
+# Materialize cuz material is awesome (it is used just for the cards :)
+gem 'materialize-sass'
 # For simple forms
 gem 'simple_form'
 

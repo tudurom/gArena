@@ -1,14 +1,14 @@
-#= require polymer/webcomponents
 #= require jquery
 #= require jquery_ujs
+#= require materialize-sprockets
 #= require bootstrap-sprockets
-#= require flat-ui
 #= require turbolinks
 #= require jquery.tablesorter
 #= require jquery-validation
 #= require jquery.avgrund
-#= require pagedown_bootstrap
-#= require pagedown_init
+#= require markdown.converter
+#= require markdown.sanitizer
+#= require markdown.editor
 #= require bootstrap-tour
 
 # $(function() {
@@ -24,7 +24,8 @@ ready = ->
     history.back()
 
     return false
-  $("select.select").select2({dropdownCssClass: 'dropdown-inverse'})
+  $(".button-collapse").sideNav();
+  $("select").material_select();
 
 $(document).ready(ready)
 $(document).on('page:load', ready)

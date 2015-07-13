@@ -6,7 +6,7 @@ class LessonsController < ApplicationController
   respond_to :html
 
   def index
-    flash[:alert] = t '.flashes.alerts.viewing'
+    flash[:alert] = t 'lessons.flashes.alerts.viewing'
     redirect_to courses_path
   end
 

@@ -21,4 +21,4 @@
     = select("students", "user_id", User.where(:role => User.roles[:student]).collect {|s| [s.name, s.id]}, {:multiple => true}, :class => "form-control select select-primary select-block mbl")
   %br
   .actions
-    = f.submit t('.save'), :class => 'btn btn-embossed btn-primary'
+    = f.submit t('.save'), :class => 'bt'

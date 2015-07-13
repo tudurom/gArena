@@ -62,7 +62,7 @@ GEM
     coffee-script (2.3.0)
       coffee-script-source
       execjs
-    coffee-script-source (1.8.0)
+    coffee-script-source (1.9.0)
     columnize (0.9.0)
     daemons (1.1.9)
     debug_inspector (0.0.2)
@@ -78,10 +78,10 @@ GEM
       devise (>= 2.1.0)
     erubis (2.7.0)
     eventmachine (1.0.4)
-    execjs (2.2.2)
+    execjs (2.3.0)
     font-awesome-rails (4.3.0.0)
       railties (>= 3.2, < 5.0)
-    globalid (0.3.0)
+    globalid (0.3.3)
       activesupport (>= 4.1.0)
     haml (4.0.6)
       tilt
@@ -131,28 +131,20 @@ GEM
       sqlite3-ruby
       thin
     maruku (0.7.2)
+    materialize-sass (0.97.0)
+      sass (~> 3.3)
     mime-types (2.4.3)
     mini_magick (4.0.3)
     mini_portile (0.6.2)
     minitest (5.5.1)
     multi_json (1.10.1)
     mysql2 (0.3.17)
-    nokogiri (1.6.5)
+    nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
-    nokogumbo (1.3.0)
-      nokogiri
     orm_adapter (0.5.0)
-    pagedown-bootstrap-rails (2.1.1)
+    pagedown-rails (1.1.3)
       railties (> 3.1)
-    polymer-core-rails (0.2.5)
-      polymer-rails (~> 0.2.2)
-    polymer-paper-rails (0.2.5)
-      polymer-rails (~> 0.2.5)
-    polymer-rails (0.2.7)
-      nokogiri (~> 1.6)
-      nokogumbo (~> 1.1)
-      rails (>= 3.1.0)
-    puma (2.9.1)
+    puma (2.11.1)
       rack (>= 1.1, < 2.0)
     rack (1.6.0)
     rack-protection (1.5.3)
@@ -170,25 +162,25 @@ GEM
       bundler (>= 1.3.0, < 2.0)
       railties (= 4.2.0)
       sprockets-rails
-    rails-assets-bootstrap (3.3.2)
+    rails-assets-bootstrap (3.3.5)
       rails-assets-jquery (>= 1.9.1)
     rails-assets-bootstrap-tour (0.10.2)
       rails-assets-bootstrap (>= 2.3.2)
       rails-assets-jquery (>= 1.9.0)
-    rails-assets-d3 (3.5.5)
+    rails-assets-d3 (3.5.6)
     rails-assets-flat-ui (2.2.2)
       rails-assets-videojs (~> 4.7.2)
-    rails-assets-jquery (2.1.3)
-    rails-assets-jquery-validation (1.13.1)
-      rails-assets-jquery (>= 1.6.4)
+    rails-assets-jquery (2.1.4)
+    rails-assets-jquery-validation (1.14.0)
+      rails-assets-jquery (>= 1.7.2)
     rails-assets-jquery.avgrund (1.3.2)
       rails-assets-jquery (>= 1.4)
-    rails-assets-jquery.tablesorter (2.19.1)
+    rails-assets-jquery.tablesorter (2.22.3)
       rails-assets-jquery (>= 1.2.6)
     rails-assets-planetary.js (1.1.1)
       rails-assets-d3 (~> 3.0)
       rails-assets-topojson (~> 1.0)
-    rails-assets-topojson (1.6.18)
+    rails-assets-topojson (1.6.19)
     rails-assets-videojs (4.7.3)
     rails-deprecated_sanitizer (1.0.3)
       activesupport (>= 4.2.0.alpha)
@@ -210,7 +202,7 @@ GEM
       railties (>= 4.2.0.alpha, < 5)
     ruby_parser (3.1.3)
       sexp_processor (~> 4.1)
-    sass (3.4.9)
+    sass (3.4.11)
     sass-rails (5.0.1)
       railties (>= 4.0.0, < 5.0)
       sass (~> 3.1)
@@ -234,13 +226,13 @@ GEM
       eventmachine (~> 1.0.0)
       thin (~> 1.5.0)
     slop (3.6.0)
-    spring (1.2.0)
+    spring (1.3.1)
     sprockets (2.12.3)
       hike (~> 1.2)
       multi_json (~> 1.0)
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
-    sprockets-rails (2.2.2)
+    sprockets-rails (2.2.4)
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (>= 2.8, < 4.0)
@@ -294,12 +286,10 @@ DEPENDENCIES
   jquery-rails
   mailcatcher
   maruku
+  materialize-sass
   mini_magick
   mysql2
-  pagedown-bootstrap-rails
-  polymer-core-rails
-  polymer-paper-rails
-  polymer-rails
+  pagedown-rails
   puma
   rails (= 4.2.0)
   rails-assets-bootstrap-tour!

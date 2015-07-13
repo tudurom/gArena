@@ -83,6 +83,9 @@ ro:
       pluralizelessonerrorscount_err: '%{pluralizelessonerrorscount_err} prohibited
         this lesson from being saved:'
       save: Save
+    flashes:
+      alerts:
+        viewing: Pentru a vedea o lectie, intra pe pagina asociata cursului si da click pe lectie.
   courses:
     new:
       new_course: Curs nou

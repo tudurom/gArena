@@ -1,12 +1,14 @@
 - content_for :title, 'All courses'
 
 %h1= t('.all_courses')
-.container
+.row
   - @courses.each do |course|
-    .col-md-4
-      %paper-shadow{:z => 1, :class => "card"}
-        %h3= link_to course.name, course_path(:id => course.id)
-        %h5= t('.coursesubject_courseteacher', :coursesubject => (course.subject), :courseteacher => (course.teacher))
+    .col.s4
+      %div{:class => "card hoverable"}
+        .card-content
+          .card-title= link_to course.name, course_path(:id => course.id)
+          %p
+            = t('.coursesubject_courseteacher', :coursesubject => (course.subject), :courseteacher => (course.teacher))
 - if can? :manage, :courses
   %hr
   = link_to t('.new_course'), new_course_path

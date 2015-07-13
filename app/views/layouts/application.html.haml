@@ -1,3 +1,5 @@
+!!! 5
+
 %html
   %head
     %title= t('.title', :title => (yield(:title) + " |" if yield(:title) != ""))
@@ -6,49 +8,65 @@
     = yield(:styles)
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = javascript_include_tag params[:controller]
-    = html_import_tag 'application'
+    
     = yield(:scripts)
     = csrf_meta_tags
     %meta{:name => "viewport", :content => "width=device-width"}
   %body
-    %nav.navbar.navbar-inverse.navbar-fixed-top
-      .container-fluid
-        .navbar-header
-          %button{:type => "button", :class => "navbar-toggle collapsed", :data => {"toggle" => "collapse", "target" => "#collapse-button"}}
-            %span.sr-only= t('.toggle_navigation')
-            %span.icon-bar
-            %span.icon-bar
-            %span.icon-bar
-          %a{:class => "navbar-brand", :href => "/"}= t('.garena')
-
-        .collapse.navbar-collapse#collapse-button
-          %ul.nav.navbar-nav
+    %header
+      %nav{:role => "navigation"}
+        .nav-wrapper.container
+          %a#logo-container.center.brand-logo{:href => "/"}= t('.garena')
+          %a.button-collapse{:href => "#", :data => {:activates => "nav-mobile"}}
+            %i.mdi-navigation-menu
+          
+          %ul.side-nav.fixed#nav-mobile
             %li= link_to t('.home'), root_path
             %li= link_to t('.courses'), courses_path
             %li= link_to t('.my_profile'), users_path
-          %p.navbar-text.navbar-right
             - if user_signed_in?
-              = t('.signed_in_as')
-              = link_to current_user.name, users_path
-              = link_to image_tag(current_user.avatar.pic.url, :class => "img-circle"), users_path
+              %li
+                // = t('.signed_in_as')
+                // = link_to current_user.name, users_path
+                // = link_to image_tag(current_user.avatar.pic.url, :class => "img-circle"), users_path
+                = link_to "#{t('.signed_in_as')} #{current_user.name} #{image_tag(current_user.avatar.pic.url, class: 'responsive-img circle')}".html_safe, users_path
             - else
-              = link_to t('.sign_in'), new_user_session_path
-    .container
-      - if flash[:success]
-        .alert.alert-success
-          %i.fa.fa-check-circle
-          = flash[:success]
-      - if flash[:notice]
-        .alert.alert-info
-          %i.fa.fa-info-circle
-          = flash[:notice]
-      - if flash[:alert]
-        .alert.alert-warning
-          %i.fa.fa-exclamation-triangle
-          = flash[:alert]
-      - if flash[:error]
-        .alert.alert-danger
-          %i.fa.fa-times-circle
-          = flash[:error]
-
-      =yield
+              %li= link_to t('.sign_in'), new_user_session_path
+            %i.mdi-navigation-menu
+          // .collapse.navbar-collapse#collapse-button
+          //   %ul.nav.navbar-nav
+          //     %li= link_to t('.home'), root_path
+          //     %li= link_to t('.courses'), courses_path
+          //     %li= link_to t('.my_profile'), users_path
+          // %p.navbar-text.navbar-right
+          %ul.right.hide-on-med-and-down
+            - if user_signed_in?
+              %li
+                // = t('.signed_in_as')
+                // = link_to current_user.name, users_path
+                // = link_to image_tag(current_user.avatar.pic.url, :class => "img-circle"), users_path
+                = link_to "#{t('.signed_in_as')} #{current_user.name} #{image_tag(current_user.avatar.pic.url, class: 'responsive-img circle')}".html_safe, users_path
+            - else
+              %li= link_to t('.sign_in'), new_user_session_path
+    %main
+      .container
+        .row
+          .col
+            - if flash[:success]
+              .alert.alert-success
+                %i.fa.fa-check-circle
+                = flash[:success]
+            - if flash[:notice]
+              .alert.alert-info
+                %i.fa.fa-info-circle
+                = flash[:notice]
+            - if flash[:alert]
+              .alert.alert-warning
+                %i.fa.fa-exclamation-triangle
+                = flash[:alert]
+            - if flash[:error]
+              .alert.alert-danger
+                %i.fa.fa-times-circle
+                = flash[:error]
+      
+            =yield
