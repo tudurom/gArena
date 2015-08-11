@@ -11,9 +11,10 @@ gem 'mini_magick'
 gem 'sass-rails', '~> 5.0'
 # Use HAML for templating
 gem 'haml'
-# Use Maruku(Markdown) for Markup
+# Use redcarpet for Markup
 gem 'maruku'
 gem 'haml-contrib'
+gem 'rouge'
 # Use pagedown as Markdown editor
 gem 'pagedown-rails'
 
@@ -51,6 +52,7 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-jquery.avgrund'
   gem 'rails-assets-flat-ui'
   gem 'rails-assets-bootstrap-tour'
+  gem 'rails-assets-highlightjs'
 end
 # Pagination
 gem 'will_paginate'

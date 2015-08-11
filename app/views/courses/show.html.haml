@@ -14,6 +14,8 @@
 = link_to t('.edit'), edit_course_path(@course)
 \|
 = link_to t('.back'), courses_path
+\|
+= link_to t('.delete'), course_path(@course), :method => "delete"
 
 - if can? :manage, :lessons
   %hr

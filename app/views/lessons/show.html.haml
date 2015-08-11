@@ -8,6 +8,7 @@
 
 - if can? :manage, @lessons
   = link_to t('.edit'), edit_lesson_path(@lesson)
+  = link_to t('.delete'), lesson_path(@lesson), :method => 'delete'
 
 - if current_user.student? && current_user.courses.include?(@lesson.course)
   = link_to t('.submit_homework_solve'), new_homework_path

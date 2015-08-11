@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>We're sorry, but something went wrong (500)</title>
+  <title>404 Not found | gArena</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <style>
   body {
@@ -55,12 +55,19 @@
 </head>
 
 <body>
-  <!-- This file lives in public/500.html -->
+  <!-- This file lives in public/404.html -->
+  <div id="fof">
+    <div></div>
+    <canvas></canvas>
+  </div>
   <div class="dialog">
     <div>
-      <h1>We're sorry, but something went wrong.</h1>
+      <h1>Pagina pe care o cautati nu exista.</h1>
+      <p>Probabil ati gresit adresa sau pagina a fost stearsa.</p>
     </div>
-    <p>If you are the application owner check the logs for more information.</p>
+    <p>Daca sunteti administratorul acestui site, verificati <code>log</code>-ul.</p>
   </div>
+  <script src="/404.js"></script>
+  <link rel="stylesheet" href="/404.css" />
 </body>
 </html>

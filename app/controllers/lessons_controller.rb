@@ -34,8 +34,9 @@ class LessonsController < ApplicationController
   end
 
   def destroy
+    course = @lesson.course_id
     @lesson.destroy
-    respond_with(@lesson)
+    redirect_to course_path(course)
   end
 
   def homework
